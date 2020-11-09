@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container" data-component="feed">
+        <div class="columns mt-3">
+            <div class="column ml-3">
+                <div class="panel is-dark">
+                    <p class="panel-heading">Feed</p>
+                    <div class="panel-block">
+                        <form action="{{ path('feed_publish') }}" method="POST" class="w-100" data-component="feed-update" autocomplete="off">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-dark" type="text" name="message" placeholder="Mensaje para el feed" required>
+                                </div>
+                            </div>
+                            <div class="field is-grouped is-grouped-right">
+                                <p class="control">
+                                    <button type="submit" class="button is-dark">Enviar</button>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

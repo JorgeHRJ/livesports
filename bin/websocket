@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+
+use App\Library\WebSockets\MessageHandler;
+use Ratchet\Http\HttpServer;
+use Ratchet\Server\IoServer;
+use Ratchet\WebSocket\WsServer;
+use Symfony\Component\Dotenv\Dotenv;
+
+require dirname(__DIR__).'/vendor/autoload.php';
+
+$dotenv = new Dotenv();
+$dotenv->load(dirname(__DIR__).'.env');
+
+$port = $_ENV['APP_WS_PORT'];
+
+$server = IoServer::factory(new HttpServer(new WsServer(new MessageHandler())), $port);
+$server->run();
+
+echo 'Running server in port: ' . $port;

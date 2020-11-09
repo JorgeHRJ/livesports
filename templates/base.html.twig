@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>LiveSports</title>
+
+    {% block stylesheets %}
+        <link type="text/css" rel="stylesheet" href="{{ asset('build/app.css') }}"/>
+    {% endblock %}
+</head>
+<body>
+    <div class="hero is-light is-small">
+        <div class="hero-body has-text-centered">
+            <div class="container">
+                <div class="column is-three-fifths is-offset-one-fifth">
+                    <h1 class="title">LiveSports</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block content %}{% endblock %}
+
+{% for js_file in encore_entry_js_files('app') %}
+    <script src="{{ asset(js_file) }}"></script>
+{% endfor %}
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

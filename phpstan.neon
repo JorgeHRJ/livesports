@@ -1,0 +1,13 @@
+parameters:
+    level: 6
+    paths:
+        - src
+    excludes_analyse:
+        - src/Migrations
+    inferPrivatePropertyTypeFromConstructor: true
+    checkGenericClassInNonGenericObjectType: false
+    checkMissingIterableValueType: false
+    ignoreErrors:
+        -
+            message: '#does not accept Doctrine\\Persistence\\ObjectRepository#'
+            path: src/Service/

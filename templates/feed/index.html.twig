@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <div class="columns mt-3">
+            <div class="column is-two-thirds" data-component="feed" data-url="{{ get_hub_url() }}">
+                <div class="panel is-dark">
+                    <p class="panel-heading">Feed</p>
+                    <div class="container" data-component="feed-container">
+
+                    </div>
+                </div>
+            </div>
+            <div class="column ml-3" data-component="chat" data-url="{{ get_hub_url() }}">
+                <div class="panel is-info">
+                    <p class="panel-heading">Chat</p>
+                    <div class="container" data-component="chat-container">
+
+                    </div>
+                    <div class="panel-block">
+                        <form action="{{ path('chat_publish') }}" method="POST" class="w-100" data-component="form-chat" autocomplete="off">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-info" type="text" name="name" placeholder="Tu nombre" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-info" type="text" name="message" placeholder="Mensaje" required>
+                                </div>
+                            </div>
+                            <div class="field is-grouped is-grouped-right">
+                                <p class="control">
+                                    <button type="submit" class="button is-info">Enviar</button>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
