@@ -9,24 +9,28 @@ use Symfony\Component\Mercure\Publisher;
 use Symfony\Component\Mercure\Update;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/", name="chat_")
- */
-class ChatController extends AbstractController
+class PublishController extends AbstractController
 {
+    const FEED_TOPIC = 'feed';
     const CHAT_TOPIC = 'chat';
+    const ALLOWED_TOPICS = [self::FEED_TOPIC, self::CHAT_TOPIC];
 
     /**
-     * @Route("/chat/publish", name="publish", methods={"POST"})
+     * @Route("/publish/{topic}", name="publish", methods={"POST"})
      *
      * @param Request $request
      * @param Publisher $publisher
+     * @param string $topic
      *
      * @return JsonResponse
      */
-    public function publish(Request $request, Publisher $publisher)
+    public function publish(Request $request, Publisher $publisher, string $topic)
     {
-        $update = new Update(self::CHAT_TOPIC, $request->getContent());
+        if (!in_array($topic, self::ALLOWED_TOPICS)) {
+            return new JsonResponse(null, JsonResponse::HTTP_BAD_REQUEST);
+        }
+
+        $update = new Update($topic, $request->getContent());
         $publisher($update);
 
         return new JsonResponse(null, JsonResponse::HTTP_OK);

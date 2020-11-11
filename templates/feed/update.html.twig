@@ -7,7 +7,11 @@
                 <div class="panel is-dark">
                     <p class="panel-heading">Feed</p>
                     <div class="panel-block">
-                        <form action="{{ path('feed_publish') }}" method="POST" class="w-100" data-component="feed-update" autocomplete="off">
+                        <form action="{{ path('publish', {'topic': 'feed'}) }}"
+                              method="POST"
+                              class="w-100"
+                              data-component="feed-update"
+                              autocomplete="off">
                             <div class="field">
                                 <div class="control">
                                     <input class="input is-dark" type="text" name="message" placeholder="Mensaje para el feed" required>

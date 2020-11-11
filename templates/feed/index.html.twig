@@ -18,7 +18,10 @@
 
                     </div>
                     <div class="panel-block">
-                        <form action="{{ path('chat_publish') }}" method="POST" class="w-100" data-component="form-chat" autocomplete="off">
+                        <form action="{{ path('publish', {'topic': 'chat'}) }}"
+                              method="POST" class="w-100"
+                              data-component="form-chat"
+                              autocomplete="off">
                             <div class="field">
                                 <div class="control">
                                     <input class="input is-info" type="text" name="name" placeholder="Tu nombre" required>
