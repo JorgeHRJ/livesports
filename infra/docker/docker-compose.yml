@@ -19,6 +19,8 @@ services:
         image: livesports-php
         volumes:
             - ${APP_DIR}:/home/app:cached
+        links:
+            - mercure
         network_mode: bridge
         working_dir: /home/app
 
@@ -33,3 +35,4 @@ services:
             - JWT_KEY=JorgeHRJ-JWTKey
             - PUBLISH_ALLOWED_ORIGINS=http://livesports.loc
             - ADDR=:3000
+        network_mode: bridge

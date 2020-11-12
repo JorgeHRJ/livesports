@@ -10,8 +10,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class FeedController extends AbstractController
 {
-    const FEED_TOPIC = 'feed';
-
     /**
      * @Route("/", name="index")
      */
