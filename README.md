@@ -65,6 +65,3 @@ docker exec -it livesports-php bin/qualitify.sh
 ## Ready!
 Open your browser and go to:
 * http://livesports.loc
-
-If you want to go the Mercure hub:
-* http://livesports.loc:9090
